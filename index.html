@@ -405,7 +405,7 @@
     </form>
     <div class="form-success" id="formSuccess">
       <h3>You're In.</h3>
-      <p>Welcome to Retention Mastery. Check your messages. Morpheus is on his way with your next steps.</p>
+      <p>Welcome to Retention Mastery. Check your email for your exclusive access details and next steps.</p>
     </div>
   </div>
 </div></div></section>
@@ -420,7 +420,6 @@
 <div class="ticker-wrap" data-section="ticker"><div class="ticker-inner"><span>Retention Mastery</span><span>Special Ops Training</span><span>First Since 2021</span><span>8 Years in the Trenches</span><span>8 Days of Training</span><span>Join Now</span><span>Retention Mastery</span><span>Special Ops Training</span><span>First Since 2021</span><span>8 Years in the Trenches</span><span>8 Days of Training</span><span>Join Now</span></div></div>
 <script>
 const WEBHOOK_URL="https://paymegpt.com/api/webhooks/flow/2666/bb816867b64f2cd8124d32d19d061195782e94b1234de41c7c730c29a53a39be";
-const MORPHEUS_AGENT_ID="38001874";
 const FREE_EMAIL_DOMAINS=["gmail.com","yahoo.com","ymail.com","hotmail.com","outlook.com","live.com","msn.com","aol.com","icloud.com","me.com","mac.com","proton.me","protonmail.com","gmx.com","mail.com","zoho.com","yandex.com","pm.me","hey.com"];
 const dot=document.getElementById("cursorDot"),ring=document.getElementById("cursorRing");
 let mouseX=0,mouseY=0,ringX=0,ringY=0;
@@ -447,10 +446,9 @@ document.getElementById("optinForm").addEventListener("submit",async function(e)
   const btnText=document.getElementById("btnText");
   btn.disabled=true;btnText.textContent="Sending...";
   const cleanPhone=phone.replace(/\D/g,"");const e164Phone="+"+cleanPhone;
-  try{const resp=await fetch(WEBHOOK_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contactName:(firstName+" "+lastName).trim(),contactEmail:email,contactPhone:e164Phone,data:{source:"rm-lander"}})});if(!resp.ok){console.error("Webhook error:",resp.status,resp.statusText);alert("Error submitting form. Please try again.");btn.disabled=false;btnText.textContent="Get Instant Access";return;}}catch(err){console.error("Fetch error:",err);alert("Connection error. Please try again.");btn.disabled=false;btnText.textContent="Get Instant Access";return;}
+  try{const resp=await fetch(WEBHOOK_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contactName:(firstName+" "+lastName).trim(),contactEmail:email,contactPhone:e164Phone,data:{source:"Retention Mastery"}})});if(!resp.ok){console.error("Webhook error:",resp.status,resp.statusText);alert("Error submitting form. Please try again.");btn.disabled=false;btnText.textContent="Get Instant Access";return;}}catch(err){console.error("Fetch error:",err);alert("Connection error. Please try again.");btn.disabled=false;btnText.textContent="Get Instant Access";return;}
   document.getElementById("optinForm").style.display="none";
   document.getElementById("formSuccess").style.display="block";
-  setTimeout(()=>{window.open("https://paymegpt.com/agents/"+MORPHEUS_AGENT_ID+"/morpheus-ai?agent="+MORPHEUS_AGENT_ID+"&first_name="+encodeURIComponent(firstName)+"&last_name="+encodeURIComponent(lastName)+"&email="+encodeURIComponent(email)+"&phone="+encodeURIComponent(e164Phone)+"&tags=retention-optin,morpheus-lead&ref=rm-lander","_blank");},1800);
 });
 </script>
 </body>
